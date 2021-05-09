@@ -19,6 +19,9 @@ public class Cliente extends Pessoa{
     @Column
     private LocalDate data_Nasc;
 
+    @Column
+    private int cnh;
+
     @OneToOne(cascade = CascadeType.ALL)
     private Contato contato;
 
@@ -45,6 +48,13 @@ public class Cliente extends Pessoa{
         this.nome = nome;
     }
 
+    public int getCnh() {
+        return cnh;
+    }
+
+    public void setCnh(int cnh) {
+        this.cnh = cnh;
+    }
 
     public int getLimite_Ate() {
         return limite_Ate;

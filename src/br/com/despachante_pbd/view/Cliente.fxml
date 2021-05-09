@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="513.0" prefWidth="706.0" style="-fx-background-color: #483D8B;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.despachante_pbd.view.Cliente">
+   <children>
+      <Pane layoutX="62.0" layoutY="73.0" prefHeight="406.0" prefWidth="599.0" style="-fx-background-color: #FFFAFA;">
+         <children>
+            <Label layoutX="249.0" layoutY="14.0" text="Cadastro" textAlignment="CENTER" textFill="NAVY">
+               <font>
+                  <Font name="Arial Black" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nomeCli" layoutX="28.0" layoutY="71.0" prefHeight="25.0" prefWidth="408.0" />
+            <DatePicker fx:id="dataNascCli" layoutX="28.0" layoutY="128.0" prefHeight="25.0" prefWidth="106.0" />
+            <TextField fx:id="cpfCli" layoutX="450.0" layoutY="71.0" prefHeight="25.0" prefWidth="106.0" />
+            <TextField fx:id="emailCli" layoutX="166.0" layoutY="128.0" prefHeight="25.0" prefWidth="212.0" />
+            <TextField fx:id="foneCli" layoutX="411.0" layoutY="128.0" prefHeight="25.0" prefWidth="124.0" />
+            <TextField fx:id="cellCli" layoutX="411.0" layoutY="178.0" prefHeight="25.0" prefWidth="124.0" />
+            <Label layoutX="28.0" layoutY="44.0" text="Nome" textFill="NAVY">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="28.0" layoutY="104.0" text="Data de nascimento" textFill="NAVY">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="166.0" layoutY="104.0" text="E-mail" textFill="NAVY">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="450.0" layoutY="44.0" text="CPF" textFill="NAVY">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="411.0" layoutY="105.0" text="Telefone" textFill="NAVY">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="412.0" layoutY="160.0" text="Celular" textFill="NAVY">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="cepCli" layoutX="28.0" layoutY="250.0" prefHeight="25.0" prefWidth="90.0" />
+            <TextField fx:id="logradouroCli" layoutX="135.0" layoutY="250.0" prefHeight="25.0" prefWidth="304.0" />
+            <TextField fx:id="numCli" layoutX="456.0" layoutY="250.0" prefHeight="25.0" prefWidth="57.0" />
+            <TextField fx:id="complementoCli" layoutX="28.0" layoutY="301.0" prefHeight="25.0" prefWidth="165.0" />
+            <TextField fx:id="bairroCli" layoutX="201.0" layoutY="301.0" prefHeight="25.0" prefWidth="157.0" />
+            <TextField fx:id="cidadeCli" layoutX="366.0" layoutY="301.0" prefHeight="25.0" prefWidth="212.0" />
+            <TextField fx:id="ufCli" layoutX="28.0" layoutY="346.0" prefHeight="25.0" prefWidth="57.0" />
+            <Label layoutX="29.0" layoutY="230.0" text="CEP" textFill="NAVY">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="135.0" layoutY="230.0" text="Logradouro" textFill="#000090">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="458.0" layoutY="230.0" text="Nº" textFill="NAVY">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="28.0" layoutY="275.0" text="Complemento" textFill="NAVY">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="201.0" layoutY="275.0" text="Bairro" textFill="NAVY">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="364.0" layoutY="275.0" text="Cidade" textFill="NAVY">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="30.0" layoutY="326.0" text="UF" textFill="NAVY" />
+            <Button layoutX="449.0" layoutY="359.0" mnemonicParsing="false" onAction="#cadastroBtCli" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #483D8B;" text="Cadastrar" textFill="SNOW">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="302.0" layoutY="359.0" mnemonicParsing="false" onAction="#cancelaBtCli" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #483D8B;" text="Cancelar" textFill="SNOW">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Label layoutX="66.0" layoutY="35.0" text="Clientes" textFill="SNOW">
+         <font>
+            <Font name="Arial Black" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

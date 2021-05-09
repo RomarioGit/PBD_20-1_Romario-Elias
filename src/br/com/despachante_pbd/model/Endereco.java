@@ -26,7 +26,7 @@ public class Endereco {
     private String cidade;
 
     @Column(nullable = false, length = 50)
-    private String estado;
+    private String uf;
 
     @Column(nullable = false, length = 9)
     private String cep;
@@ -91,12 +91,12 @@ public class Endereco {
         this.cep = cep;
     }
 
-    public String getEstado() {
-        return estado;
+    public String getUf() {
+        return uf;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setUf(String uf) {
+        this.uf = uf;
     }
 
     @Override
@@ -108,7 +108,7 @@ public class Endereco {
                 ", complemento='" + complemento + '\'' +
                 ", bairro='" + bairro + '\'' +
                 ", cidade='" + cidade + '\'' +
-                ", estado='" + estado + '\'' +
+                ", estado='" + uf + '\'' +
                 ", cep='" + cep + '\'' +
                 '}';
     }
