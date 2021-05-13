@@ -9,13 +9,12 @@ import java.util.Objects;
 
 @Entity
 @Inheritance (strategy = InheritanceType.JOINED)
-//@SequenceGenerator(sequenceName = "pessoa_sequence", name = "pessoa", initialValue = 1, allocationSize = 1)
-public abstract  class Pessoa implements Serializable {
+@SequenceGenerator(sequenceName = "pessoa_sequence", name = "pessoa", initialValue = 1, allocationSize = 1)
+public class Pessoa implements Serializable {
     protected static final String SEQUENCE_PESSOA = "pessoa_sequence";
 
     @Id
     @GeneratedValue (strategy = GenerationType.SEQUENCE, generator = SEQUENCE_PESSOA) //Gera IDs diferentes para cada tabela, não interfere em outras tarefas
-    @GenericGenerator(name = "incremento",strategy = "increment")
     @Cascade(value = org.hibernate.annotations.CascadeType.ALL)
     private Integer id;
 
@@ -57,5 +56,13 @@ public abstract  class Pessoa implements Serializable {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    @Override
+    public String toString() {
+        return "Pessoa{" +
+                "id=" + id +
+                ", cpf='" + cpf + '\'' +
+                '}';
     }
 }
