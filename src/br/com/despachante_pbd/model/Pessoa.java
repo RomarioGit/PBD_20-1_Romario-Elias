@@ -4,17 +4,15 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.io.Serializable;
+
 import java.util.Objects;
 
 @Entity
-@Inheritance (strategy = InheritanceType.JOINED)
-@SequenceGenerator(sequenceName = "pessoa_sequence", name = "pessoa", initialValue = 1, allocationSize = 1)
-public class Pessoa implements Serializable {
-    protected static final String SEQUENCE_PESSOA = "pessoa_sequence";
+@Table(name = "pessoa")
+public class Pessoa{
 
     @Id
-    @GeneratedValue (strategy = GenerationType.SEQUENCE, generator = SEQUENCE_PESSOA) //Gera IDs diferentes para cada tabela, não interfere em outras tarefas
+    @GeneratedValue
     @Cascade(value = org.hibernate.annotations.CascadeType.ALL)
     private Integer id;
 

@@ -4,12 +4,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "funcionario")
-@PrimaryKeyJoinColumn(name = "pessoa_id")
 //@SequenceGenerator(name = Pessoa.SEQUENCE_PESSOA,sequenceName = Funcionario.SEQUENCE_FUNCIONARIO, initialValue = 1, allocationSize = 1)
-public class Funcionario extends Pessoa {
-    protected static final String SEQUENCE_FUNCIONARIO = "funcionario_sequence";
+public class Funcionario{
 
     @Id
+    @GeneratedValue
     private Integer id;
 
     @Column (nullable = false, length = 150)
@@ -24,7 +23,7 @@ public class Funcionario extends Pessoa {
     @Column
     private boolean status;
 
-    @OneToMany
+    @OneToOne (cascade = CascadeType.ALL)
     private Usuario usuario;
 
     @OneToOne (cascade = CascadeType.ALL)
@@ -33,16 +32,50 @@ public class Funcionario extends Pessoa {
     @OneToOne (cascade = CascadeType.ALL)
     private Endereco endereco;
 
+    @OneToOne (cascade = CascadeType.ALL)
+    private Pessoa pessoa;
+
+
     public Funcionario (){
 
     }
 
-    @Override
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Contato getContato() {
+        return contato;
+    }
+
+    public void setContato(Contato contato) {
+        this.contato = contato;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
+
     public Integer getId() {
         return id;
     }
 
-    @Override
     public void setId(Integer id) {
         this.id = id;
     }
@@ -82,7 +115,6 @@ public class Funcionario extends Pessoa {
     @Override
     public String toString() {
         return "Funcionario{" +
-                "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", setor='" + setor + '\'' +
                 ", func='" + func + '\'' +

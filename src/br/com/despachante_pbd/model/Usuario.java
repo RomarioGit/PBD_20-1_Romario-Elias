@@ -4,12 +4,11 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-//@SequenceGenerator(name = Funcionario.SEQUENCE_PESSOA, sequenceName = Usuario.SEQUENCE_USUARIO, initialValue = 1, allocationSize = 1)
-//Rever a linha acima !!!!!
-public class Usuario extends Funcionario {
+@Table(name = "usuario")
+public class Usuario{
 
-    protected static final String SEQUENCE_USUARIO = "usuario_sequence";
     @Id
+    @GeneratedValue
     private Integer id;
 
     @Column(nullable = false, length = 50)
@@ -21,6 +20,15 @@ public class Usuario extends Funcionario {
     public Usuario (){
 
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getLogin() {
         return login;
     }

@@ -5,9 +5,10 @@ import java.time.LocalDate;
 
 @Entity
 @Table (name = "cliente")
-public class Cliente extends Pessoa{
+public class Cliente {
 
     @Id
+    @GeneratedValue
     private Integer id;
 
     @Column(nullable = false, length = 150)
@@ -28,14 +29,15 @@ public class Cliente extends Pessoa{
     @OneToOne (cascade = CascadeType.ALL)
     private Endereco endereco;
 
+    @OneToOne (cascade = CascadeType.ALL)
+    private Pessoa pessoa;
+
     public Cliente(){}
 
-    @Override
     public Integer getId() {
         return id;
     }
 
-    @Override
     public void setId(Integer id) {
         this.id = id;
     }

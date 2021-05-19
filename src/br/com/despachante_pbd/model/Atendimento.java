@@ -31,7 +31,7 @@ public class Atendimento {
     @OneToOne (cascade = CascadeType.ALL)
     private Usuario usuario;
 
-    @OneToMany
+    @ManyToOne
     private Servicos servicos;
 
     public Atendimento(){}
