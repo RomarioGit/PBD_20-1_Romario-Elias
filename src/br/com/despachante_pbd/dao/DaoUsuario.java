@@ -2,11 +2,12 @@ package br.com.despachante_pbd.dao;
 
 import br.com.despachante_pbd.ConectionFactory.Conection;
 import br.com.despachante_pbd.model.Usuario;
+import br.com.despachante_pbd.util.SqlUtil;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 public class DaoUsuario implements IDaoUsuario {
-
     @Override
     public Usuario salvar(Usuario usuario) {
         EntityManager em = new Conection().getEntityManager();
@@ -62,33 +63,17 @@ public class DaoUsuario implements IDaoUsuario {
 
     @Override
     public Usuario validaLogin(String login, String senha) {
-
-        EntityManager em = new Conection().getEntityManager();
-        Usuario usuario = null;
-        try {
-            usuario = (Usuario) em
-                    .createQuery("select u from Usuario u where login = :login and senha = :senha")
-                    .setParameter("login", login).setParameter("senha", senha).getSingleResult();
-
-        } catch (Exception e) {
-            return null;
-        } return usuario;
-    }
-
-    /*@Override
-    public Usuario validaLogin(String login) {
-
         EntityManager em = new Conection().getEntityManager ();
-        Usuario usuario = null;
-        try{
-            usuario = em.find(Usuario.class, login);
-            if(login.equalsIgnoreCase(usuario.getLogin())){
-                return usuario;
-            }
-        }catch (Exception e){
-            em.getTransaction().rollback();
-        }finally {
-            em.close();
-        }return usuario ;
-    }*/
+
+        try {
+            TypedQuery<Usuario> query = em.createQuery (SqlUtil.BUSCAR_LOGIN_SENHA, Usuario.class);
+            query.setParameter("login", login);
+            query.setParameter("senha", senha);
+            return query.getSingleResult();
+        }catch (Exception e ){
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+            return null;
+        }
+    }
 }

@@ -7,6 +7,7 @@ import br.com.despachante_pbd.view.Mensagem;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
@@ -26,18 +27,27 @@ public class LoginController implements Initializable {
     private PasswordField senhaPf;
 
     @FXML
+    private Button entrarBt;
+
+    @FXML
     void cancelarBt(ActionEvent event) {
         System.exit(0);
     }
 
     @FXML
-    void entrarBt(ActionEvent event) throws IOException {
-        if (efetuarLogin()){
-            App.stagePrincipal().show();
-            App.stagePrincipal().setResizable(false);
-            App.stagePrincipal().setTitle("Home Disp@tch");
-            App.stageLogin().close();
+    void efetuarLogin(ActionEvent event) throws IOException {
+        if( event.getSource() == entrarBt){
+            Usuario usuario = null;
+            usuario = Facade.getInstance().validaLoginUsuario(usuarioLog.getText(),senhaPf.getText());
+            if(usuario != null){
+                App.stagePrincipal().show();
+                App.stagePrincipal().setResizable(false);
+                App.stagePrincipal().setTitle("Home Disp@tch");
+                App.stageLogin().close();
+
+            }
         }
+
     }
 
     @FXML
@@ -50,25 +60,10 @@ public class LoginController implements Initializable {
 
     }
 
-    public boolean efetuarLogin(){
-        try {
-            usuario = facade.validaLoginUsuario(usuarioLog.getText(), senhaPf.getText());
-            if (usuario == null){
-                Mensagem.mensagem("Senha ou Email incorretos, Por favor verifique novamente seus dados");
-                return false;
-            }else{
-
-                usuarioLog.clear();
-                senhaPf.clear();
-                return true;
-            }
-
-        }catch (Exception e){
-            Mensagem.mensagem("Usuário não cadastrado no sistema!");
-            usuarioLog.clear();
-            senhaPf.clear();
-            return false;
-        }
+    public void limparCampos(){
+        usuarioLog.clear();
+        senhaPf.clear();
     }
+
 
 }

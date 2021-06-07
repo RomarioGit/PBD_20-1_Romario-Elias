@@ -4,11 +4,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "funcionario")
-//@SequenceGenerator(name = Pessoa.SEQUENCE_PESSOA,sequenceName = Funcionario.SEQUENCE_FUNCIONARIO, initialValue = 1, allocationSize = 1)
+
 public class Funcionario{
 
     @Id
-    @GeneratedValue
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column (nullable = false, length = 150)
@@ -34,7 +34,6 @@ public class Funcionario{
 
     @OneToOne (cascade = CascadeType.ALL)
     private Pessoa pessoa;
-
 
     public Funcionario (){
 

@@ -12,11 +12,11 @@ import java.util.Objects;
 public class Pessoa{
 
     @Id
-    @GeneratedValue
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Cascade(value = org.hibernate.annotations.CascadeType.ALL)
     private Integer id;
 
-    @Column(length = 11)
+    @Column(length = 11, unique = true)
     private String cpf;
 
     public Pessoa() {

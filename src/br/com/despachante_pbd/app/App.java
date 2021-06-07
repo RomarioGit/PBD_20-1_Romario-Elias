@@ -31,6 +31,7 @@ public class App extends Application {
         Pessoa pessoa = new Pessoa();
         Usuario usuario = new Usuario();
         pessoa.setCpf("010101");
+
         usuario.setLogin("berg10");
         usuario.setSenha("1000");
 
